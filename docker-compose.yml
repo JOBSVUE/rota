@@ -8,8 +8,8 @@ services:
     container_name: rota-core
     restart: unless-stopped
     ports:
-      - "8000:8000" # Proxy port
-      - "8001:8001" # API port
+      - "8099:8000" # Proxy port
+      - "8091:8001" # API port
     environment:
       - PROXY_PORT=8000
       - API_PORT=8001
@@ -49,7 +49,7 @@ services:
     container_name: rota-dashboard
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3090:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8001
     networks:
@@ -63,7 +63,7 @@ services:
     container_name: rota-timescaledb
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5492:5432"
     environment:
       - POSTGRES_USER=rota
       - POSTGRES_PASSWORD=rota_password
